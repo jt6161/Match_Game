@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+}
+
+img {
+  height: 125px;
+  width: 125px;
+  padding: 10px;
+}
+
+
+.section {
+  height: 570px;
+  width: 460;
+  background-color: white;
+  margin: 0 auto;
+}
