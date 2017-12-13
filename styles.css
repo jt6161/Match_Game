@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  margin: 20px;
 }
 
 img {
@@ -8,10 +9,51 @@ img {
   padding: 10px;
 }
 
-
 .section {
-  height: 570px;
-  width: 460;
+  width: 600px;
+  height: 600px;
   background-color: white;
+  margin: auto;
+}
+
+#Start {
+  margin: 20px;
+}
+
+#results_per_page {
+  width: 600px;
+  height: 580px;
+}
+
+.tile {
+  float: left;
+  width: 125px;
+  height: 125px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cfcfcf;
+  cursor: pointer;
+}
+
+.tile img {
+  display: block;
   margin: 0 auto;
+  padding-top: 25px;
+  width: 50px;
+}
+
+.tileColor1 {
+  background-color: rgb(176, 235, 23);
+}
+
+.tileColor2 {
+  background-color: rgb(57, 171, 62);
+}
+
+.tileColor3 {
+  background-color: rgb(130, 189, 46);
+}
+
+.tileColor4 {
+  background-color: rgb(200, 217, 126);
 }

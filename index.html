@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Match Game</title>
+  <title>Scratch Match</title>
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
@@ -12,28 +12,24 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
   <link rel="stylesheet" type="text/css" href="styles.css">
-
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-
-  <div class="container">
-    <h1 class="center-align yellow-text #ffeb3b">Play Area</h1>
-    <div class="col s6 card-panel red darken-4">
-    </div>
-    <div class="section">
-      <div class="results">
-
+  <div class="container center-align">
+    <h1 class="yellow-text #ffeb3b">Scratch Match</h1>
+    <div class="section center-align">
+      <div class="results" id="results_per_page">
       </div>
     </div>
-    <div class="col s12 card-panel red darken-4">
-    </div>
     <div class="row center align">
-    <a class="waves-effect waves-light btn" id="Start">Start Game</a>
+      <a class="waves-effect waves-light btn-large" id="Start">Start Game</a>
     </div>
-
+    <audio id="audioEngine">
+      <source src="mp3/catmeow2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
   </div>
 </body>
 
