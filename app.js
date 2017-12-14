@@ -18,7 +18,7 @@ $(document).ready(function() {
         })
         img.click(function() {
           console.log('here');
-          $(this).rotate3Di(180, 3000);
+          $(this).rotate3Di(360, 3000);
         })
         let img2 = $('<img>')
         img2.addClass('imgEvent')
@@ -30,11 +30,11 @@ $(document).ready(function() {
         })
         img2.click(function() {
           console.log('here');
-          $(this).rotate3Di(180, 3000);
+          $(this).rotate3Di(360, 3000);
         })
         cards.push(img, img2)
       }
-      //Randomize cards image array
+      //Randomize cards image array using function randomSort
       $('.results').append(cards.sort(randomSort))
     })
   })
