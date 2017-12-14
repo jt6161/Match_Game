@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: #eceff1;
   margin: 20px;
 }
 
@@ -7,6 +7,11 @@ img {
   height: 125px;
   width: 125px;
   padding: 10px;
+}
+
+.container {
+  width: 600px;
+  height: auto;
 }
 
 .section {
@@ -25,40 +30,6 @@ img {
   height: 580px;
 }
 
-
-
-#nav-list-example {
-  height: 132px;
-  width: 580px;
-	list-style-type: none;
-	padding: 0px;
-	margin: 0px;
-}
-
-#nav-list-example li {
-    width: 128px;
-    height: 125px;
-    float: left;
-    /*margin-right: 10px;*/
-    margin-bottom: 10px;
-    position: relative;
-}
-
-#nav-list-example li div {
-    width: 128px;
-    height: 125px;
-    overflow: hidden;
-    background: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    /*border : 2px solid black;*/
-}
-
-#nav-list-example li div.back {
-    left: -999em;
-    background: #999;
-}
-#nav-list-example li div.front {
-	background:url('./images/tile.png');
-}
+/*#results_per_page li div.front {
+	background:url('../images/tile.png');
+}*/
