@@ -8,7 +8,9 @@ img {
   width: 125px;
   padding: 10px;
 }
-
+.item{
+  display: inline-block;
+}
 .container {
   width: 600px;
   height: auto;
@@ -30,7 +32,7 @@ img {
   height: auto;
 }
 
-#results_per_page {
+#game {
   width: 600px;
   height: 580px;
 }

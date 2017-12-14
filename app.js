@@ -1,14 +1,21 @@
 $(document).ready(function() {
 
+let cards = []
+
+
   let btns = $('#Start')
   btns.click(function(e) {
     $.get("http://thecatapi.com/api/images/get?format=xml&results_per_page=20", function(data) {
       let json = xmlToJson(data)
       let images = json.response.data.images.image
-      let cards = []
+      // let cards = []
       let errorCounter = 0
       for (let i = 0; i < 8; i++) {
+        let div1 = $("<div>");
         let img = $('<img>')
+        let front = $('<img>')
+        front.attr('src', '/images/tile.png')
+        // cards.push("<img src=" + images[i].url["#text"] + ">")
         img.addClass('back')
         img.attr('src', images[i].url["#text"])
         img.on('error', function() {
@@ -17,9 +24,14 @@ $(document).ready(function() {
           $(this).attr('src', './images/err' + num + '.jpeg')
         })
 img.click(function () {$(this).rotate3Di('toggle', 1000);});
-
-
-        let img2 = $('<img>')
+        div1.addClass('item');
+        div1.addClass('front');
+        div1.append(img);
+        let div2 = $('<div>');
+        let img2 = $('<img>');
+        let front2 = $('<img>');
+        front2.attr('src', '/images/tile.png')
+        // cards.push("<img src=" + images[i].url["#text"] + ">")
         img2.addClass('back')
         img2.attr('src', images[i].url["#text"])
         img2.on('error', function() {
@@ -28,25 +40,21 @@ img.click(function () {$(this).rotate3Di('toggle', 1000);});
           $(this).attr('src', './images/err' + num + '.jpeg')
         })
 img2.click(function () {$(this).rotate3Di('toggle', 1000);});
+        div2.addClass('item');
+        div2.addClass('back')
+        div2.append(img2);
+        cards.push(div1, div2);
 
 
-        cards.push(img, img2)
       }
       //Randomize cards image array using function randomSort
-      $('#results_per_page').append(cards.sort(randomSort))
+      $('.game').append(cards.sort(randomSort))
       console.log(cards);
+      // $(".card-front").attr('src', '/images/tile.png');
     })
   })
 
 
-// Need to create divs and add front class for flip
-  // let blocks = "";
-  // let num_of_blocks = 16;
-  // for (let i = 1; i <=num_of_blocks.length; i++) {
-  //  blocks +='<li id="'+i+'"><div class="front"><a href="#"></a></div><div class="back" style="display:none;"><a href="#"></a></div></li>\n';
-  // }
-  // $('#results_per_page').html(blocks);
-  // console.log(blocks);
 
 
   //Function to randomize array
@@ -95,5 +103,31 @@ img2.click(function () {$(this).rotate3Di('toggle', 1000);});
     }
     return obj;
   };
+
+// Do the flipped cards match?
+//   function doCardsMatch(){
+//     if (firstCard === secondCard) {
+//       console.log("they match");
+//       //create function
+//       firstCard = "";
+//       secondCard = "";
+//       firstCardIndex = 0;
+//       secondCardIndex = 0;
+//     } else {
+//       //create function
+//       $($("img")[firstCardIndex]).css({"height": "100%", "width": "100%"});
+//       $($("p")[firstCardIndex]).css("visibility", "hidden");
+//       $($("img")[secondCardIndex]).css({"height": "100%", "width": "100%"});
+//       $($("p")[secondCardIndex]).css("visibility", "hidden");
+//       firstCard = "";
+//       secondCard = "";
+//       firstCardIndex = 0;
+//       secondCardIndex = 0;
+//     }
+//   }
+
+
+
+
 
 })
