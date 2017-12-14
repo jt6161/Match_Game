@@ -6,79 +6,53 @@ $(document).ready(function() {
       let json = xmlToJson(data)
       let images = json.response.data.images.image
       let cards = []
-      for (let i = 1; i <= 8; i++) {
+      let errorCounter = 0
+      for (let i = 0; i < 8; i++) {
         let img = $('<img>')
+        img.addClass('imgEvent')
         img.attr('src', images[i].url["#text"])
         img.on('error', function() {
-          $(this).remove()
+          errorCounter++
+          let num = errorCounter % 2 === 0 ? errorCounter - 1 : errorCounter
+          $(this).attr('src', './images/err' + num + '.jpeg')
+        })
+        img.click(function() {
+          console.log('here');
+          $(this).rotate3Di(180, 3000);
         })
         let img2 = $('<img>')
+        img2.addClass('imgEvent')
         img2.attr('src', images[i].url["#text"])
         img2.on('error', function() {
-          $(this).remove()
+          errorCounter++
+          let num = errorCounter % 2 === 0 ? errorCounter - 1 : errorCounter
+          $(this).attr('src', './images/err' + num + '.jpeg')
+        })
+        img2.click(function() {
+          console.log('here');
+          $(this).rotate3Di(180, 3000);
         })
         cards.push(img, img2)
       }
-
-      let tiles = new Array(),
-      	flips = new Array('tb', 'bt', 'lr', 'rl' ),
-      	iFlippedTile = null,
-      	iTileBeingFlippedId = null,
-      	tileImages = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16),
-      	tileAllocation = null,
-        iTimer = 0,
-        iInterval = 100,
-        iPeekTimme = 1000;
-
-      function getRandomImageForTile() {
-
-      	let iRandomImage = Math.floor((Math.random() * tileAllocation.length)),
-      		iMaxImageUse = 2;
-
-      	while(tileAllocation[iRandomImage] >= iMaxImageUse ) {
-
-      		iRandomImage = iRandomImage + 1;
-
-      		if(iRandomImage >= tileAllocation.length) {
-
-      			iRandomImage = 0;
-      		}
-      	}
-      	return iRandomImage;
-        console.log(iRandomImage)
-      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function randomNum(cards) {
-//   return Math.floor(Math.random() * cards)
-// }
-
-// document.getElementById("results_per_page").innerHTML =
-// Math.floor(Math.random() * 15);
-
-
-        // randomcards.push(cards)
-        // console.log(randomcards);
-        $('.results').append(cards)
-
-
+      //Randomize cards image array
+      $('.results').append(cards.sort(randomSort))
     })
   })
 
 
 
 
+  //Function to randomize array
+  function randomSort(a, b) {
+    // Get a random number between 0 and 10
+    var temp = parseInt(Math.random() * 10);
+    // Get 1 or 0, whether temp is odd or even
+    var isOddOrEven = temp % 2;
+    // Get +1 or -1, whether temp greater or smaller than 5
+    var isPosOrNeg = temp > 5 ? 1 : -1;
+    // Return -1, 0, or +1
+    return (isOddOrEven * isPosOrNeg);
+  }
 
   function xmlToJson(xml) {
     // Create the return object
@@ -95,7 +69,6 @@ $(document).ready(function() {
     } else if (xml.nodeType == 3) { // text
       obj = xml.nodeValue;
     }
-
     // do children
     if (xml.hasChildNodes()) {
       for (var i = 0; i < xml.childNodes.length; i++) {

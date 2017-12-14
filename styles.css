@@ -25,35 +25,40 @@ img {
   height: 580px;
 }
 
-.tile {
-  float: left;
-  width: 125px;
-  height: 125px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #cfcfcf;
-  cursor: pointer;
+
+
+#nav-list-example {
+  height: 132px;
+  width: 580px;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
 }
 
-.tile img {
-  display: block;
-  margin: 0 auto;
-  padding-top: 25px;
-  width: 50px;
+#nav-list-example li {
+    width: 128px;
+    height: 125px;
+    float: left;
+    /*margin-right: 10px;*/
+    margin-bottom: 10px;
+    position: relative;
 }
 
-.tileColor1 {
-  background-color: rgb(176, 235, 23);
+#nav-list-example li div {
+    width: 128px;
+    height: 125px;
+    overflow: hidden;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*border : 2px solid black;*/
 }
 
-.tileColor2 {
-  background-color: rgb(57, 171, 62);
+#nav-list-example li div.back {
+    left: -999em;
+    background: #999;
 }
-
-.tileColor3 {
-  background-color: rgb(130, 189, 46);
-}
-
-.tileColor4 {
-  background-color: rgb(200, 217, 126);
+#nav-list-example li div.front {
+	background:url('./images/tile.png');
 }
