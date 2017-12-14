@@ -9,44 +9,44 @@ $(document).ready(function() {
       let errorCounter = 0
       for (let i = 0; i < 8; i++) {
         let img = $('<img>')
-        img.addClass('front')
+        img.addClass('back')
         img.attr('src', images[i].url["#text"])
         img.on('error', function() {
           errorCounter++
           let num = errorCounter % 2 === 0 ? errorCounter - 1 : errorCounter
           $(this).attr('src', './images/err' + num + '.jpeg')
         })
-        img.click(function() {
-          console.log('here');
-          $(this).rotate3Di(360, 3000);
-        })
+img.click(function () {$(this).rotate3Di('toggle', 1000);});
+
+
         let img2 = $('<img>')
-        img2.addClass('front')
+        img2.addClass('back')
         img2.attr('src', images[i].url["#text"])
         img2.on('error', function() {
           errorCounter++
           let num = errorCounter % 2 === 0 ? errorCounter - 1 : errorCounter
           $(this).attr('src', './images/err' + num + '.jpeg')
         })
-        img2.click(function() {
-          console.log('here');
-          $(this).rotate3Di(360, 3000);
-        })
+img2.click(function () {$(this).rotate3Di('toggle', 1000);});
+
+
         cards.push(img, img2)
       }
       //Randomize cards image array using function randomSort
       $('#results_per_page').append(cards.sort(randomSort))
+      console.log(cards);
     })
   })
 
-// Need to create divs and add back or front class for flip
-  let blocks = "";
-  let num_of_blocks = 16;
-  for (let i = 1; i <=num_of_blocks.length; i++) {
-   blocks +='<li id="'+i+'"><div class="front"><a href="#"></a></div><div class="back" style="display:none;"><a href="#"></a></div></li>\n';
-  }
-  $('#results_per_page').html(blocks);
-  console.log(blocks);
+
+// Need to create divs and add front class for flip
+  // let blocks = "";
+  // let num_of_blocks = 16;
+  // for (let i = 1; i <=num_of_blocks.length; i++) {
+  //  blocks +='<li id="'+i+'"><div class="front"><a href="#"></a></div><div class="back" style="display:none;"><a href="#"></a></div></li>\n';
+  // }
+  // $('#results_per_page').html(blocks);
+  // console.log(blocks);
 
 
   //Function to randomize array

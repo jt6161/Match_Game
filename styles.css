@@ -25,6 +25,11 @@ img {
   margin: 20px;
 }
 
+.page-footer {
+  background-color: #00bfa5;
+  height: auto;
+}
+
 #results_per_page {
   width: 600px;
   height: 580px;
