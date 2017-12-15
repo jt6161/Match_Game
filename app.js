@@ -40,19 +40,22 @@ $(document).ready(function() {
         });
         cards.push(div1, div2);
 
-
       }
       //Randomize cards image array using function randomSort
       $('.game').append(cards.sort(randomSort))
 
-
     })
   })
 
+
+
+
+
+  // let selCards = div.item.back
   // function selectedCards() {
-  // this card
-  // if (attr src === attr src)
-  // }
+  //
+  // if (selCards img attr src === img attr src)
+  // } remove selCards
   //
 
 

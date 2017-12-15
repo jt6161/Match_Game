@@ -1,15 +1,13 @@
 body {
-  background-color: #eceff1;
+  background-color: #bdbdbd;
   margin: 20px;
 }
-
 
 .front {
   background-image: url("./images/tile.png")
 }
 
 .front.item {
-	/* background-color: red; */
   height: 125px;
   width: 125px;
 }
@@ -19,12 +17,14 @@ img {
   width: 125px;
   padding: 10px;
 }
-.item{
+
+.item {
   display: inline-block;
   width: 125px;
   height: 125px;
   margin-left: 0.5em;
 }
+
 .container {
   width: 600px;
   height: auto;
