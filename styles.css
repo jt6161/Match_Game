@@ -3,6 +3,12 @@ body {
   margin: 20px;
 }
 
+.front.item {
+	/* background-color: red; */
+  height: 125px;
+  width: 125px;
+}
+
 img {
   height: 125px;
   width: 125px;
@@ -36,7 +42,3 @@ img {
   width: 600px;
   height: 580px;
 }
-
-/*#results_per_page li div.front {
-	background:url('../images/tile.png');
-}*/

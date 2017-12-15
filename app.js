@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
-let cards = []
-
+  let cards = []
 
   let btns = $('#Start')
   btns.click(function(e) {
@@ -14,8 +13,8 @@ let cards = []
         let div1 = $("<div>");
         let img = $('<img>')
         let front = $('<img>')
-        front.attr('src', '/images/tile.png')
-        // cards.push("<img src=" + images[i].url["#text"] + ">")
+        front.attr('src', 'images/tile.png')
+
         img.addClass('back')
         img.attr('src', images[i].url["#text"])
         img.on('error', function() {
@@ -23,15 +22,18 @@ let cards = []
           let num = errorCounter % 2 === 0 ? errorCounter - 1 : errorCounter
           $(this).attr('src', './images/err' + num + '.jpeg')
         })
-img.click(function () {$(this).rotate3Di('toggle', 1000);});
-        div1.addClass('item');
+        img.click(function() {
+          // $(this).click(function () {$(this).rotate3Di('-=180', 1000);});
+          $(this).rotate3Di('toggle', 1000);
+        });
         div1.addClass('front');
+        div1.addClass('item');
         div1.append(img);
         let div2 = $('<div>');
         let img2 = $('<img>');
         let front2 = $('<img>');
-        front2.attr('src', '/images/tile.png')
-        // cards.push("<img src=" + images[i].url["#text"] + ">")
+        front2.attr('src', 'images/tile.png')
+
         img2.addClass('back')
         img2.attr('src', images[i].url["#text"])
         img2.on('error', function() {
@@ -39,18 +41,28 @@ img.click(function () {$(this).rotate3Di('toggle', 1000);});
           let num = errorCounter % 2 === 0 ? errorCounter - 1 : errorCounter
           $(this).attr('src', './images/err' + num + '.jpeg')
         })
-img2.click(function () {$(this).rotate3Di('toggle', 1000);});
+        img2.click(function() {
+          // $(this).click(function () {$(this).rotate3Di('-=180', 1000);});
+          $(this).rotate3Di('toggle', 1000);
+        });
+        div2.addClass('front');
         div2.addClass('item');
-        div2.addClass('back')
         div2.append(img2);
         cards.push(div1, div2);
+
+        // Almost broke my code so ask about this
+        // let tiles = $('<img>');
+        // let fronttiles = $('<div>');
+        // tiles.push(front, front2);
+        // fronttiles.append(tiles);
 
 
       }
       //Randomize cards image array using function randomSort
       $('.game').append(cards.sort(randomSort))
       console.log(cards);
-      // $(".card-front").attr('src', '/images/tile.png');
+
+
     })
   })
 
@@ -104,27 +116,6 @@ img2.click(function () {$(this).rotate3Di('toggle', 1000);});
     return obj;
   };
 
-// Do the flipped cards match?
-//   function doCardsMatch(){
-//     if (firstCard === secondCard) {
-//       console.log("they match");
-//       //create function
-//       firstCard = "";
-//       secondCard = "";
-//       firstCardIndex = 0;
-//       secondCardIndex = 0;
-//     } else {
-//       //create function
-//       $($("img")[firstCardIndex]).css({"height": "100%", "width": "100%"});
-//       $($("p")[firstCardIndex]).css("visibility", "hidden");
-//       $($("img")[secondCardIndex]).css({"height": "100%", "width": "100%"});
-//       $($("p")[secondCardIndex]).css("visibility", "hidden");
-//       firstCard = "";
-//       secondCard = "";
-//       firstCardIndex = 0;
-//       secondCardIndex = 0;
-//     }
-//   }
 
 
 
