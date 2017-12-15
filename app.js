@@ -7,65 +7,53 @@ $(document).ready(function() {
     $.get("http://thecatapi.com/api/images/get?format=xml&results_per_page=20", function(data) {
       let json = xmlToJson(data)
       let images = json.response.data.images.image
-      // let cards = []
       let errorCounter = 0
       for (let i = 0; i < 8; i++) {
         let div1 = $("<div>");
-        let img = $('<img>')
-        let front = $('<img>')
-        front.attr('src', 'images/tile.png')
-
-        img.addClass('back')
-        img.attr('src', images[i].url["#text"])
-        img.on('error', function() {
-          errorCounter++
-          let num = errorCounter % 2 === 0 ? errorCounter - 1 : errorCounter
-          $(this).attr('src', './images/err' + num + '.jpeg')
-        })
-        img.click(function() {
-          // $(this).click(function () {$(this).rotate3Di('-=180', 1000);});
-          $(this).rotate3Di('toggle', 1000);
-        });
         div1.addClass('front');
         div1.addClass('item');
-        div1.append(img);
-        let div2 = $('<div>');
-        let img2 = $('<img>');
-        let front2 = $('<img>');
-        front2.attr('src', 'images/tile.png')
-
-        img2.addClass('back')
-        img2.attr('src', images[i].url["#text"])
-        img2.on('error', function() {
-          errorCounter++
-          let num = errorCounter % 2 === 0 ? errorCounter - 1 : errorCounter
-          $(this).attr('src', './images/err' + num + '.jpeg')
-        })
-        img2.click(function() {
-          // $(this).click(function () {$(this).rotate3Di('-=180', 1000);});
-          $(this).rotate3Di('toggle', 1000);
+        div1.click(function() {
+          div1.rotate3Di('toggle', 1000);
+          window.setTimeout(function() {
+            div1.toggleClass("front")
+            div1.toggleClass("back")
+            if (div1.hasClass("back")) {
+              div1.css("background", "url(" + images[i].url['#text'] + ") center center no-repeat")
+              div1.css("background-size", "cover")
+            }
+          }, 150)
         });
+
+        let div2 = $("<div>");
         div2.addClass('front');
         div2.addClass('item');
-        div2.append(img2);
+        div2.click(function() {
+          div2.rotate3Di('toggle', 1000);
+          window.setTimeout(function() {
+            div2.toggleClass("front")
+            div2.toggleClass("back")
+            if (div2.hasClass("back")) {
+              div2.css("background", "url(" + images[i].url['#text'] + ") center center no-repeat")
+              div2.css("background-size", "cover")
+            }
+          }, 150)
+        });
         cards.push(div1, div2);
-
-        // Almost broke my code so ask about this
-        // let tiles = $('<img>');
-        // let fronttiles = $('<div>');
-        // tiles.push(front, front2);
-        // fronttiles.append(tiles);
 
 
       }
       //Randomize cards image array using function randomSort
       $('.game').append(cards.sort(randomSort))
-      console.log(cards);
 
 
     })
   })
 
+  // function selectedCards() {
+  // this card
+  // if (attr src === attr src)
+  // }
+  //
 
 
 
