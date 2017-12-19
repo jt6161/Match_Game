@@ -33,8 +33,9 @@ img {
 .section {
   width: 600px;
   height: 600px;
+  border: solid 1px #00bfa5;
   background-color: white;
-  margin: auto;
+  margin: 0 auto;
 }
 
 #Start {
@@ -46,7 +47,8 @@ img {
   height: auto;
 }
 
-#game {
+.game {
   width: 600px;
-  height: 580px;
+  height: 600px;
+  padding: 20px;
 }
