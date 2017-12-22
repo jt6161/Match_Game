@@ -39,7 +39,6 @@ $(document).ready(function() {
           }, 150)
         });
         cards.push(div1, div2);
-
       }
       //Randomize cards image array using function randomSort
       $('.game').append(cards.sort(randomSort))
@@ -47,16 +46,25 @@ $(document).ready(function() {
     })
   })
 
+  // $('.front item').click(function(){
 
-
-
-
-  // let selCards = div.item.back
+// })
+  //
   // function selectedCards() {
-  //
-  // if (selCards img attr src === img attr src)
-  // } remove selCards
-  //
+  //   document.getElementsByClassName('item back')
+  // }
+
+
+
+  // let selCards =
+  // function selectedCards() {
+  //   if (background === background) {
+  //     $('#item back').hide()
+  //   } else {
+  //     $('#item back').toggleClass("front")
+  //   }
+  }
+
 
 
 
