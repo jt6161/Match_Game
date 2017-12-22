@@ -63,7 +63,7 @@ $(document).ready(function() {
   //   } else {
   //     $('#item back').toggleClass("front")
   //   }
-  }
+// })
 
 
 
