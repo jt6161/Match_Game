@@ -4,6 +4,7 @@ body {
 }
 
 .front {
+  border-radius: 5px;
   background-image: url("./images/tile_teal_cat.png")
 }
 
@@ -23,6 +24,7 @@ img {
   width: 125px;
   height: 125px;
   margin-left: 0.5em;
+  border-radius: 5px;
 }
 
 .container {
@@ -33,6 +35,7 @@ img {
 .section {
   width: 600px;
   height: 600px;
+  border-radius: 10px;
   border: solid 1px #00bfa5;
   background-color: white;
   margin: 0 auto;
@@ -45,6 +48,7 @@ img {
 .page-footer {
   background-color: #00bfa5;
   height: auto;
+  padding-top: 10px;
 }
 
 .game {

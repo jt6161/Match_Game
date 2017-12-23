@@ -46,74 +46,70 @@ $(document).ready(function() {
     })
   })
 
-  // $('.front item').click(function(){
+  // After picking 2 tiles, compare them
 
-// })
-  //
-  // function selectedCards() {
-  //   document.getElementsByClassName('item back')
-  // }
-
-
-
-  // let selCards =
-  // function selectedCards() {
-  //   if (background === background) {
-  //     $('#item back').hide()
-  //   } else {
-  //     $('#item back').toggleClass("front")
-  //   }
-// })
+  // $('.front item').click(function() {
+  // let selCards = []
+  //   function selectedCards() {
+  //     document.getElementsByClassName('item back')
+  //       if (url === url) {
+  //         $('#item back').hide()
+  //       } else {
+  //         $('#item back').toggleClass("front")
+  //       }
+  //     }
+  //   })
+  //   selCards.push
 
 
 
 
-  //Function to randomize array
-  function randomSort(a, b) {
-    // Get a random number between 0 and 10
-    var temp = parseInt(Math.random() * 10);
-    // Get 1 or 0, whether temp is odd or even
-    var isOddOrEven = temp % 2;
-    // Get +1 or -1, whether temp greater or smaller than 5
-    var isPosOrNeg = temp > 5 ? 1 : -1;
-    // Return -1, 0, or +1
-    return (isOddOrEven * isPosOrNeg);
+//Function to randomize array
+function randomSort(a, b) {
+  // Get a random number between 0 and 10
+  let temp = parseInt(Math.random() * 10);
+  // Get 1 or 0, whether temp is odd or even
+  let isOddOrEven = temp % 2;
+  // Get +1 or -1, whether temp greater or smaller than 5
+  let isPosOrNeg = temp > 5 ? 1 : -1;
+  // Return -1, 0, or +1
+  return (isOddOrEven * isPosOrNeg);
+}
+
+function xmlToJson(xml) {
+  // Create the return object
+  let obj = {};
+  if (xml.nodeType == 1) { // element
+    // do attributes
+    if (xml.attributes.length > 0) {
+      obj["@attributes"] = {};
+      for (let j = 0; j < xml.attributes.length; j++) {
+        let attribute = xml.attributes.item(j);
+        obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+      }
+    }
+  } else if (xml.nodeType == 3) { // text
+    obj = xml.nodeValue;
   }
-
-  function xmlToJson(xml) {
-    // Create the return object
-    var obj = {};
-    if (xml.nodeType == 1) { // element
-      // do attributes
-      if (xml.attributes.length > 0) {
-        obj["@attributes"] = {};
-        for (var j = 0; j < xml.attributes.length; j++) {
-          var attribute = xml.attributes.item(j);
-          obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+  // do children
+  if (xml.hasChildNodes()) {
+    for (let i = 0; i < xml.childNodes.length; i++) {
+      let item = xml.childNodes.item(i);
+      let nodeName = item.nodeName;
+      if (typeof(obj[nodeName]) == "undefined") {
+        obj[nodeName] = xmlToJson(item);
+      } else {
+        if (typeof(obj[nodeName].push) == "undefined") {
+          let old = obj[nodeName];
+          obj[nodeName] = [];
+          obj[nodeName].push(old);
         }
-      }
-    } else if (xml.nodeType == 3) { // text
-      obj = xml.nodeValue;
-    }
-    // do children
-    if (xml.hasChildNodes()) {
-      for (var i = 0; i < xml.childNodes.length; i++) {
-        var item = xml.childNodes.item(i);
-        var nodeName = item.nodeName;
-        if (typeof(obj[nodeName]) == "undefined") {
-          obj[nodeName] = xmlToJson(item);
-        } else {
-          if (typeof(obj[nodeName].push) == "undefined") {
-            var old = obj[nodeName];
-            obj[nodeName] = [];
-            obj[nodeName].push(old);
-          }
-          obj[nodeName].push(xmlToJson(item));
-        }
+        obj[nodeName].push(xmlToJson(item));
       }
     }
-    return obj;
-  };
+  }
+  return obj;
+};
 
 
 
