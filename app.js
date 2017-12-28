@@ -2,6 +2,8 @@ $(document).ready(function() {
 
   let cards = []
 
+
+
   let btns = $('#Start')
   btns.click(function(e) {
     $.get("http://thecatapi.com/api/images/get?format=xml&results_per_page=20", function(data) {
@@ -9,36 +11,43 @@ $(document).ready(function() {
       let images = json.response.data.images.image
       let errorCounter = 0
       for (let i = 0; i < 8; i++) {
+
         let div1 = $("<div>");
         div1.addClass('front');
         div1.addClass('item');
-        div1.click(function() {
-          div1.rotate3Di('toggle', 1000);
-          window.setTimeout(function() {
-            div1.toggleClass("front")
-            div1.toggleClass("back")
-            if (div1.hasClass("back")) {
-              div1.css("background", "url(" + images[i].url['#text'] + ") center center no-repeat")
-              div1.css("background-size", "cover")
-            }
-          }, 150)
-        });
+        div1.click(addCardClick1);
 
         let div2 = $("<div>");
         div2.addClass('front');
         div2.addClass('item');
-        div2.click(function() {
-          div2.rotate3Di('toggle', 1000);
-          window.setTimeout(function() {
-            div2.toggleClass("front")
-            div2.toggleClass("back")
-            if (div2.hasClass("back")) {
-              div2.css("background", "url(" + images[i].url['#text'] + ") center center no-repeat")
-              div2.css("background-size", "cover")
-            }
-          }, 150)
-        });
+        div2.click(addCardClick2);
         cards.push(div1, div2);
+
+        function manageCardClass1() {
+          div1.toggleClass("front")
+          div1.toggleClass("back")
+          if (div1.hasClass("back")) {
+            div1.css("background", "url(" + images[i].url['#text'] + ") center center no-repeat")
+            div1.css("background-size", "cover")
+          }
+        }
+        function addCardClick1() {
+          div1.rotate3Di('toggle', 1000);
+          window.setTimeout(manageCardClass1, 150)
+        }
+
+        function manageCardClass2() {
+          div2.toggleClass("front")
+          div2.toggleClass("back")
+          if (div2.hasClass("back")) {
+            div2.css("background", "url(" + images[i].url['#text'] + ") center center no-repeat")
+            div2.css("background-size", "cover")
+          }
+        }
+        function addCardClick2() {
+          div2.rotate3Di('toggle', 1000);
+          window.setTimeout(manageCardClass2, 150)
+        }
       }
       //Randomize cards image array using function randomSort
       $('.game').append(cards.sort(randomSort))
