@@ -2,8 +2,6 @@ $(document).ready(function() {
 
   let cards = []
 
-
-
   let btns = $('#Start')
   btns.click(function(e) {
     $.get("http://thecatapi.com/api/images/get?format=xml&results_per_page=20", function(data) {
@@ -31,9 +29,11 @@ $(document).ready(function() {
             div1.css("background-size", "cover")
           }
         }
+
         function addCardClick1() {
           div1.rotate3Di('toggle', 1000);
           window.setTimeout(manageCardClass1, 150)
+          window.setTimeout(selectedCards, 1100)
         }
 
         function manageCardClass2() {
@@ -44,9 +44,11 @@ $(document).ready(function() {
             div2.css("background-size", "cover")
           }
         }
+
         function addCardClick2() {
           div2.rotate3Di('toggle', 1000);
           window.setTimeout(manageCardClass2, 150)
+          window.setTimeout(selectedCards, 1100)
         }
       }
       //Randomize cards image array using function randomSort
@@ -101,10 +103,6 @@ $(document).ready(function() {
     }
     return obj;
   };
-
-
-
-
 
 
 })
