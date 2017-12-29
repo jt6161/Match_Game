@@ -56,7 +56,6 @@ $(document).ready(function() {
 
     })
   })
-
   //Function to randomize array
   function randomSort(a, b) {
     // Get a random number between 0 and 10
@@ -103,6 +102,5 @@ $(document).ready(function() {
     }
     return obj;
   };
-
 
 })
