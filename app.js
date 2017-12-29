@@ -33,7 +33,7 @@ $(document).ready(function() {
         function addCardClick1() {
           div1.rotate3Di('toggle', 1000);
           window.setTimeout(manageCardClass1, 150)
-          window.setTimeout(selectedCards, 1100)
+          window.setTimeout(selectCard, 1100)
         }
 
         function manageCardClass2() {
@@ -48,7 +48,7 @@ $(document).ready(function() {
         function addCardClick2() {
           div2.rotate3Di('toggle', 1000);
           window.setTimeout(manageCardClass2, 150)
-          window.setTimeout(selectedCards, 1100)
+          window.setTimeout(selectCard, 1100)
         }
       }
       //Randomize cards image array using function randomSort

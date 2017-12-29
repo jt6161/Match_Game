@@ -1,12 +1,13 @@
   // Pick 2 tiles and then compare them
-  function selectedCards() {
-    let numSel = 2
-    let selCards = document.querySelectorAll('.back')
-    console.log("selCards", selCards);
-    if (selCards.length === 2) {
-      if (selCards[0].style.background === selCards[1].style.background) {
-        $('.back').off(addCardClick1)
-        $('.back').off(addCardClick2)
+  function selectCard() {
+    const selected = $('.back');
+    const howMany = selected.length;
+    console.log("selected", selected);
+    if (howMany === 2) {
+      if (selected[0].style.background === selected[1].style.background) {
+        // $('.back').off(addCardClick1)
+        // $('.back').off(addCardClick2)
+        $('.back').addClass('complete')
         $('.back').removeClass('front')
         $('.back').removeClass('back')
 
@@ -24,7 +25,6 @@
           1000, {
             sideChange: mySideChange,
             complete: myComplete
-
           }
         );
 
@@ -32,7 +32,6 @@
           $('.back').addClass('front')
           $('.back').removeClass('back')
         }, 1001)
-
 
       }
     }
