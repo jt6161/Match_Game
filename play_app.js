@@ -2,11 +2,16 @@
   function selectCard() {
     const selected = $('.back');
     const howMany = selected.length;
-    console.log("selected", selected);
+
     if (howMany === 2) {
       if (selected[0].style.background === selected[1].style.background) {
-        // $('.back').off(addCardClick1)
-        // $('.back').off(addCardClick2)
+
+        $(".back").stop().rotate3Di(
+          '0',
+          800, {
+            complete: myComplete
+          }
+        );
         $('.back').addClass('complete')
         $('.back').removeClass('front')
         $('.back').removeClass('back')
@@ -35,4 +40,7 @@
 
       }
     }
+    // Game complete
+    console.log($('.complete'));
+
   }
