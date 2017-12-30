@@ -7,6 +7,7 @@ $(document).ready(function() {
     $.get("http://thecatapi.com/api/images/get?format=xml&results_per_page=20", function(data) {
       let json = xmlToJson(data)
       let images = json.response.data.images.image
+      $('.audioDemo3').trigger('play')
       let errorCounter = 0
       for (let i = 0; i < 8; i++) {
 
@@ -53,7 +54,6 @@ $(document).ready(function() {
       }
       //Randomize cards image array using function randomSort
       $('.game').append(cards.sort(randomSort))
-
     })
   })
   //Function to randomize array

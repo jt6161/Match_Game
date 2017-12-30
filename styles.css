@@ -27,6 +27,10 @@ img {
   border-radius: 5px;
 }
 
+.complete {
+  border-radius: 5px;
+}
+
 .container {
   width: 600px;
   height: auto;
