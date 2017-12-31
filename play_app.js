@@ -38,6 +38,12 @@
         }, 1001)
       }
     }
-    // Game complete
-    // console.log($('.complete'))
+
+    let matched = $('.complete');
+    let amt = matched.length;
+
+    if (amt === 16) {
+      Materialize.toast('Scratch Match Winner!', 4000)
+    }
+
   }

@@ -7,7 +7,8 @@ $(document).ready(function() {
     $.get("http://thecatapi.com/api/images/get?format=xml&results_per_page=20", function(data) {
       let json = xmlToJson(data)
       let images = json.response.data.images.image
-      $('.audioDemo3').trigger('play')
+      $('.audioDemo2').trigger('play')
+      Materialize.toast('Meow Meow!', 4000)
       let errorCounter = 0
       for (let i = 0; i < 8; i++) {
 
@@ -56,6 +57,17 @@ $(document).ready(function() {
       $('.game').append(cards.sort(randomSort))
     })
   })
+
+  // turn volume down
+  function volumeDown() {
+    var volume = $('.audioDemo2').prop("volume") - 1;
+    if (volume < 0) {
+      volume = 0;
+    }
+    $('.audioDemo2').prop("volume", volume);
+  }
+
+
   //Function to randomize array
   function randomSort(a, b) {
     // Get a random number between 0 and 10
