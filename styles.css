@@ -3,6 +3,11 @@ body {
   margin: 20px;
 }
 
+h1 {
+  font-style: italic;
+  font-weight: bold;
+}
+
 .front {
   border-radius: 5px;
   background-image: url("./images/tile_teal_cat.png")

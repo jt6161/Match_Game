@@ -43,7 +43,6 @@
     let amt = matched.length;
 
     if (amt === 16) {
-      Materialize.toast('Scratch Match Winner!', 4000)
+      Materialize.toast('Scratch Match Winner!', 5000)
     }
-
   }
