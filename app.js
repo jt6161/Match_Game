@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
-  let cards = []
 
+  $('#modal1').modal()
+  let cards = []
   let btns = $('#Start')
+
   btns.click(function(e) {
     $.get("http://thecatapi.com/api/images/get?format=xml&results_per_page=20", function(data) {
       let json = xmlToJson(data)
