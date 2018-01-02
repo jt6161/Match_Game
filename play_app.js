@@ -6,7 +6,7 @@
     if (howMany === 2) {
       if (selected[0].style.background === selected[1].style.background) {
 
-        $(".back").stop().rotate3Di(
+        $('.back').stop().rotate3Di(
           '0',
           800, {
             complete: myComplete
@@ -15,7 +15,7 @@
         $('.back').addClass('complete')
         $('.back').removeClass('front')
         $('.back').removeClass('back')
-        $(".audioDemo").trigger('play')
+        $('.audioDemo').trigger('play')
 
       } else {
         function myComplete() {
@@ -25,7 +25,7 @@
         function mySideChange() {
           $('.back').css('background-image', 'url(./images/tile_teal_cat.png)')
         }
-        $(".back").rotate3Di(
+        $('.back').rotate3Di(
           '180',
           1000, {
             sideChange: mySideChange,
@@ -43,6 +43,6 @@
     let amt = matched.length;
 
     if (amt === 16) {
-      Materialize.toast('Scratch Match Winner!', 5000)
+      Materialize.toast('Scratch Match Winner!!!', 5000)
     }
   }

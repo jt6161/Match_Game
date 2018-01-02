@@ -10,7 +10,7 @@ h1 {
 
 .front {
   border-radius: 5px;
-  background-image: url("./images/tile_teal_cat.png")
+  background-image: url('./images/tile_teal_cat.png')
 }
 
 .front.item {
@@ -45,13 +45,19 @@ img {
   width: 600px;
   height: 600px;
   border-radius: 10px;
-  border: solid 1px #00bfa5;
-  background-color: white;
+  border: solid 2px #00bfa5;
+  background-color: #eeeeee;
   margin: 0 auto;
 }
 
 #Start {
   margin: 20px;
+}
+
+#modal1 {
+  background-color: #eeeeee;
+  border-radius: 5px;
+  border: solid 2px #00bfa5;
 }
 
 .page-footer {
