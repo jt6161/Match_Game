@@ -58,7 +58,13 @@ $(document).ready(function() {
       //Randomize cards image array using function randomSort
       $('.game').append(cards.sort(randomSort))
     })
+turnStartBtnOff()
   })
+    function turnStartBtnOff() {
+      $('#Start').text('reset')
+      $('.game').empty()
+      cards = []
+    }
 
 
   //Function to randomize array
